@@ -1,11 +1,19 @@
-# Bolsa — Jogo de Investimentos
+# Ponto do Trader
 
-Jogo de investimentos em uma página HTML independente.
+Jogo educativo de investimentos em uma página HTML.
 
-## Executar
+## Firebase
 
-Abra `index.html` em um navegador. Não é necessário instalar dependências nem iniciar um servidor local.
+O jogo usa Firebase Authentication com e-mail/senha e Cloud Firestore para salvar o progresso de cada conta na nuvem.
 
-## Publicar com GitHub Pages
+1. No Firebase Console, ative o provedor **E-mail/senha**.
+2. Crie o banco Firestore na região adequada aos jogadores.
+3. Publique as regras de `firestore.rules` na guia **Firestore → Regras**.
+4. Em **Authentication → Configurações → Domínios autorizados**, inclua `dinodrf777-max.github.io`.
+5. Publique `index.html` com GitHub Pages.
 
-Envie estes arquivos para um repositório GitHub e, em **Settings → Pages**, escolha **Deploy from a branch**, selecione `main` e `/ (root)`.
+Os saldos do jogo são fictícios. Cada jogador pode gravar somente seu próprio progresso. Para habilitar o painel administrativo, crie primeiro a conta do administrador no app e, em seguida, crie no Firestore um documento vazio em `admins/{UID}`, usando o UID dessa conta exibido em **Authentication → Usuários**. Não permita que o app crie documentos nessa coleção.
+
+## GitHub Pages
+
+Em **Settings → Pages**, selecione **Deploy from a branch**, escolha `main` e `/ (root)`.
